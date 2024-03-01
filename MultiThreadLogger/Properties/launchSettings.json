@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "MultiThreadLogger": {
+      "commandName": "Project",
+      "commandLineArgs": "c:\\olympusquiz\\log"
+    },
+    "Container (Dockerfile)": {
+      "commandName": "Docker"
+    }
+  }
+}

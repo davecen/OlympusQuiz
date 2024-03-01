@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  multi-thread-logger:
+    image: multi-thread-logger
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - C:\junk:/log
