@@ -8,4 +8,5 @@ WORKDIR /app
 VOLUME /log
 COPY --from=build /app/out .
 ENV RUNNING_IN_DOCKER=true
+ENV TZ=America/New_York
 ENTRYPOINT ["dotnet", "MultiThreadLogger.dll"]
