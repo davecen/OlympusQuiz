@@ -8,3 +8,5 @@ services:
       dockerfile: Dockerfile
     volumes:
       - C:\junk:/log
+    environment:
+     - TZ=America/New_York
