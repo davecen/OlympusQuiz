@@ -30,6 +30,9 @@ public class ThreadLogger
         //start the log consumer task
         var logConsumerTask = Task.Run(() => LogConsumerTask(_ts.Token));
         
+        //puts in first line and resets line number
+        InitializeLogging();
+
         //all the log producing tasks
         Task[] tasks = GenerateLogProducerTasks(_ts.Token);
         
@@ -63,6 +66,16 @@ public class ThreadLogger
                 Console.WriteLine($"Exception while running log consuming thread: {ex.Message}");
             }
         }
+    }
+
+    /// <summary>
+    /// Puts in the initial line and resets the line number counter
+    /// </summary>
+    private void InitializeLogging()
+    {       
+        string line = $"0, {Thread.CurrentThread.ManagedThreadId}, {DateTime.Now.ToString("HH:mm:ss.fff")}";
+        _lineNumber = 1;
+        _logQueue.Enqueue(line);
     }
 
     /// <summary>
